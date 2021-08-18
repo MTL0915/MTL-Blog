@@ -28,5 +28,6 @@ export default {
 .content{
   width:1200px;
   margin: 0 auto;
+  overflow: hidden;
 }
 </style>
