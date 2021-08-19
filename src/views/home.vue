@@ -2,9 +2,10 @@
 <div class="home">
   <Header></Header>
   <div class="content">
-    <ArticleBox></ArticleBox>
-    <Category></Category>
+    <ArticleBox class="fl"></ArticleBox>
+    <Category class="fr"></Category>
   </div>
+  <Footer></Footer>
 </div>
 
 </template>
@@ -13,11 +14,13 @@
 import Header from '../components/Header.vue'
 import ArticleBox from '../components/ArticleBox.vue'
 import Category from '../components/Category.vue'
+import Footer from '../components/Footer.vue'
 export default {
   components: {
     Header,
     ArticleBox,
-    Category
+    Category,
+    Footer
   },
   data() {
     return {};
@@ -29,5 +32,12 @@ export default {
   width:1200px;
   margin: 0 auto;
   overflow: hidden;
+  margin-top:50px;
+}
+.fl{
+  float: left;
+}
+.fr{
+  float: right;
 }
 </style>

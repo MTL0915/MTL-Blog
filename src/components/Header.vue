@@ -7,8 +7,8 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="#">works</a></li>
             <li><a href="#">blog</a></li>
+            <li><a href="#">works</a></li>
             <li><a href="#">resume</a></li>
           </ul>
         </div>
