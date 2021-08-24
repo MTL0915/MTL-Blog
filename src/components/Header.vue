@@ -7,9 +7,9 @@
         </div>
         <div class="menu">
           <ul>
-            <li><a href="#">blog</a></li>
-            <li><a href="#">works</a></li>
-            <li><a href="#">resume</a></li>
+            <li><router-link to="/">blog</router-link></li>
+            <li><router-link to="works">works</router-link></li>
+            <li><router-link to="resume">resume</router-link></li>
           </ul>
         </div>
       </div>
@@ -17,7 +17,7 @@
     <div class="banner">
       <swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for="(item, index) in bannerImgs" :key="index">
-          <img :src="item" alt="" />
+          <router-link to="detail"><img :src="item" alt="" /></router-link>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
