@@ -44,29 +44,49 @@ export default {
   height:30px;
   line-height: 30px;
   padding-bottom: 15px;
-  border-bottom:3px solid #000000;
+  border-bottom: 3px solid #000000;
 }
-.content-header .title{
+.content-header .title {
   font-size: 24px;
   font-weight: bold;
 }
-.content-header .author{
+.content-header .author {
   font-size: 14px;
   float: right;
-  color: #444444;
+  color: #8d8d8d;
 }
-.content-header .createTime{
+.content-header .createTime {
   font-size: 14px;
   float: right;
-  color: #444444;
+  color: #8d8d8d;
   padding-left: 10px;
 }
-.content-body{
-  margin-top:5px;
+.content-body {
+  margin-top: 5px;
 }
-.content-body img{
-  width:100%;
-  height:300px;
+.content-body img {
+  width: 100%;
+  height: 300px;
+}
+.content-footer {
+  height: 30px;
+  line-height: 30px;
+  margin-top: 10px;
+}
+.content-footer .more {
+  color: #7d4f18;
+  border-bottom:1px solid #7d4f18;
+}
+.content-footer .classify {
+  font-size: 14px;
+  float: right;
+  color: #8d8d8d;
+}
+.content-footer .comment {
+  font-size: 14px;
+  float: right;
+  color: #7d4f18;
+  padding-left: 10px;
 }
 .content-footer{
   margin-top:5px;
@@ -81,3 +101,4 @@ export default {
   float: right;
 }
 </style>
+
