@@ -1,13 +1,17 @@
 <template>
   <div class="articleBox">
-    <div class="content">
+    <div class="content" v-for="item in articleList" :key="item.id">
       <div class="content-header">
-        <span class="title">我的网站作品一</span>
-        <span class="createTime">2021/08/18</span>
-        <span class="author">马天乐</span>
+        <span class="title">{{item.title}}</span>
+        <span class="createTime">{{item.createTime}}</span>
+        <span class="author">{{item.author}}</span>
       </div>
       <div class="content-body">
-        <img src="https://img.zcool.cn/ad_manager/location/abfb61151e5b1101c43350048100.png">
+        <img :src="item.imgUrl">
+      </div>
+      <div class="content-footer">
+        <span class="more">read more ></span>
+        <span class="category">{{item.category}}</span>
       </div>
     </div>
   </div>
@@ -15,20 +19,26 @@
 
 <script>
 export default {
-
+  name:"ArticleBox",
+  data(){
+    return{
+      articleList:[
+        {id:"001",title:"我的网站作品一",createTime:"2021/08/18",author:"马天乐",imgUrl:"https://img.zcool.cn/ad_manager/location/abfb61151e5b1101c43350048100.png",category:"网页 WEB"},
+        {id:"002",title:"我的网站作品二",createTime:"2022/03/17",author:"马天乐",imgUrl:"https://img.zcool.cn/tubelocation/d08361f3b2a71101c43c6134d3a8.jpg",category:"网页 WEB"}
+      ]
+    }
+  }
 }
 </script>
 
 <style scoped>
 .articleBox{
-    width:800px;
-    height:400px;
-    background-color: #ffffff;
-    float: left;
+  width:800px;
+  background-color: #ffffff;
+  float: left;
 }
 .content{
-  width:720px;
-  padding: 30px;
+  padding: 20px 30px;
 }
 .content-header{
   height:30px;
@@ -57,5 +67,17 @@ export default {
 .content-body img{
   width:100%;
   height:300px;
+}
+.content-footer{
+  margin-top:5px;
+  height:30px;
+  line-height: 30px;
+}
+.content-footer .more{
+  float: left;
+  border-bottom: 1px solid #333;
+}
+.content-footer .category{
+  float: right;
 }
 </style>
