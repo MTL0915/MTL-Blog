@@ -2,7 +2,7 @@
 <div class="detail">
   <Header></Header>
   <div class="content">
-    <ArticleDetailBox class="fl"></ArticleDetailBox>
+    <ArticleDetailBox class="fl" :detailId="detailId"></ArticleDetailBox>
     <Category class="fr"></Category>
   </div>
   <Footer></Footer>
@@ -15,6 +15,7 @@ import Header from '../components/Header.vue'
 import ArticleDetailBox from '../components/ArticleDetailBox.vue'
 import Category from '../components/Category.vue'
 import Footer from '../components/Footer.vue'
+
 export default {
   components: {
     Header,
@@ -23,8 +24,13 @@ export default {
     Footer
   },
   data() {
-    return {};
+    return {
+      detailId:""
+    };
   },
+  mounted(){
+    this.detailId = this.$route.query.id
+  }
 };
 </script>
 <style scoped>

@@ -1,22 +1,11 @@
 <template>
-  <div class="works">
+  <div class="notes">
     <Header></Header>
-    <div class="works-content">
-      <div class="terminal">
-        <div class="terminal-tag">
-          <i class="iconfont icondiannao"></i>
-          <span class="terminal-title">WEB</span>
-        </div>
-        <div class="terminal-tag">
-          <i class="iconfont iconshouji"></i>
-          <span class="terminal-title">APP</span>
-        </div>
-        <div class="terminal-tag">
-          <i class="iconfont iconxiaochengxu"></i>
-          <span class="terminal-title">WECHAT</span>
-        </div>
+    <div class="notes-content">
+      <div class="collect">
+        <p>收集到的资料</p>
       </div>
-      <div class="myWorks">
+      <div class="myNotes">
         <ul>
           <li class="list-item">
             <a href="#">
@@ -129,7 +118,7 @@ export default {
 </script>
 
 <style scoped>
-.works-content {
+.notes-content {
   width: 1200px;
   margin: 0 auto;
   margin-top: 30px;
@@ -138,29 +127,26 @@ export default {
   font-size: 30px;
   padding-right: 5px;
 }
-.terminal {
+.collect {
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
   border-bottom: solid 1px #abcdef;
+  font-size: 24px;
+  font-weight: bold;
 }
-.terminal-tag {
-  display: flex;
-  align-items: center;
-  padding: 0 40px;
-}
-.myWorks {
+.myNotes {
   margin-top: 30px;
   margin-right: -20px;
 }
-.myWorks .list-item {
+.myNotes .list-item {
   width: 285px;
   vertical-align: top;
   display: inline-block;
   margin-right: 20px;
   margin-bottom:30px;
 }
-.myWorks .list-item img {
+.myNotes .list-item img {
   display: block;
   width: 100%;
   height: 100%;

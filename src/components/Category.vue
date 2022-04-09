@@ -5,19 +5,17 @@
       <div class="line"></div>
     </div>
     <ul class="category-body">
-      <li v-for="(item,index) in categoryList" :key="index">{{item}}</li>
+      <li><router-link active-class="active" to="/home/allCategory">全部</router-link></li>
+      <li><router-link active-class="active" to="/home/pcCategory">PC版</router-link></li>
+      <li><router-link active-class="active" to="/home/phoneCategory">移动端</router-link></li>
+      <li><router-link active-class="active" to="/home/weChatCategory">小程序</router-link></li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-  name:"Category",
-  data(){
-    return{
-      categoryList:["PC版","移动端","小程序"]
-    }
-  }
+  name:"Category"
 }
 </script>
 
@@ -44,5 +42,8 @@ export default {
   border-bottom:1px solid #c7c7c7;
   height: 40px;
   line-height:40px;
+}
+.category-body li a{
+  color: #333333
 }
 </style>

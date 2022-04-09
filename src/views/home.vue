@@ -2,7 +2,7 @@
 <div class="home">
   <Header></Header>
   <div class="content">
-    <ArticleBox class="fl"></ArticleBox>
+    <router-view></router-view>
     <Category class="fr"></Category>
   </div>
   <Footer></Footer>
@@ -24,13 +24,9 @@ export default {
     Footer
   },
   data() {
-    return {};
-  },
-  mounted(){
-    this.axios.get('api/api/article/list').then(body => {
-      console.log(123)
-      console.log(body.data)
-    })
+    return {
+      articleList:[]
+    };
   }
 };
 </script>

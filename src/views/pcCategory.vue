@@ -7,7 +7,7 @@
         <span class="author">{{item.author}}</span>
       </div>
       <div class="content-body">
-        <img :src="'http://www.quchuan.net/' + item.image">
+        <img :src="item.image">
       </div>
       <div class="content-footer">
         <span class="more">read more ></span>
@@ -18,13 +18,25 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name:"ArticleBox",
-  props:['articleList'],
+  name:'allCategory',
   data(){
     return{
-
+      articleList:[]
     }
+  },
+  mounted(){
+    axios.get('http://localhost:8080/api/article/pclist').then(
+      response => {
+        console.log('请求成功',response.data)
+        this.articleList = response.data.data
+      },
+      error => {
+        console.log('请求失败',error.message)
+      }
+    )
   }
 }
 </script>
@@ -32,11 +44,12 @@ export default {
 <style scoped>
 .articleBox{
   width:800px;
-  background-color: #ffffff;
   float: left;
 }
 .content{
   padding: 20px 30px;
+  margin-bottom: 20px;
+  background-color: #ffffff;
 }
 .content-header{
   height:30px;
@@ -99,4 +112,3 @@ export default {
   float: right;
 }
 </style>
-

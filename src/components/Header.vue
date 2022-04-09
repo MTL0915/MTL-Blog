@@ -7,9 +7,8 @@
         </div>
         <div class="menu">
           <ul>
-            <li><router-link to="/">blog</router-link></li>
-            <li><router-link to="works">works</router-link></li>
-            <li><router-link to="resume">resume</router-link></li>
+            <li><router-link active-class="active" to="/home">blog</router-link></li>
+            <li><router-link active-class="active" to="/notes">notes</router-link></li>
           </ul>
         </div>
       </div>
@@ -17,7 +16,7 @@
     <div class="banner">
       <swiper :options="swiperOption" ref="mySwiper">
         <swiper-slide v-for="(item, index) in bannerImgs" :key="index">
-          <router-link to="detail"><img :src="item" alt="" /></router-link>
+          <router-link :to="`/detail?id=${item.detail_id}`"><img :src="item.bannerImg" alt="" /></router-link>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
         <div class="swiper-button-prev" slot="button-prev"></div>
@@ -31,6 +30,7 @@
 // 引入插件
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import "swiper/dist/css/swiper.css";
+import axios from 'axios'
 
 export default {
   components: {
@@ -40,9 +40,7 @@ export default {
   data() {
     return {
       bannerImgs:[
-        "https://img.zcool.cn/ad_manager/location/e48d611b139d1101c43350ae6b31.jpg",
-        "https://img.zcool.cn/ad_manager/location/7439611b137f1101c43350934225.png",
-        "https://img.zcool.cn/ad_manager/location/27f5611b14041101c433502dc500.jpg"
+
       ],
       swiperOption: {
         loop: true,
@@ -74,6 +72,16 @@ export default {
     // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
     console.log("this is current swiper instance object", this.swiper);
     // this.swiper.slideTo(3, 1000, false);
+
+    axios.get('http://localhost:8080/api/article/bannerImg').then(
+      response => {
+        console.log('请求成功123',response.data)
+        this.bannerImgs = response.data.data
+      },
+      error => {
+        console.log('请求失败',error.message)
+      }
+    )
   }
 };
 </script>
@@ -100,12 +108,19 @@ export default {
   float: left;
   height: 50px;
   line-height: 50px;
+  margin:0 20px;
 }
 .menu ul li a {
-  padding-left: 40px;
+  display: block;
+  height:46px;
+  padding:0 4px;
+}
+.active{
+  border-bottom: 2px solid #94ade4;
 }
 .banner img{
   width:100%;
   height:300px;
+  object-fit: cover;
 }
 </style>
