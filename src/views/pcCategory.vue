@@ -1,18 +1,20 @@
 <template>
   <div class="articleBox">
-    <div class="content" v-for="item in articleList" :key="item.id">
-      <div class="content-header">
-        <span class="title">{{item.title}}</span>
-        <span class="createTime">{{item.add_time}}</span>
-        <span class="author">{{item.author}}</span>
-      </div>
-      <div class="content-body">
-        <img :src="item.image">
-      </div>
-      <div class="content-footer">
-        <span class="more">read more ></span>
-        <span class="category">{{item.keywords}}</span>
-      </div>
+    <div class="content" v-for="item in articleList" :key="item.detail_id">
+      <router-link :to="`/detail?id=${item.detail_id}`">
+        <div class="content-header">
+          <span class="title">{{item.title}}</span>
+          <span class="createTime">{{item.add_time}}</span>
+          <span class="author">{{item.author}}</span>
+        </div>
+        <div class="content-body">
+          <img :src="item.image">
+        </div>
+        <div class="content-footer">
+          <span class="more">read more ></span>
+          <span class="category">{{item.keywords}}</span>
+        </div>
+      </router-link>
     </div>
   </div>
 </template>
@@ -50,6 +52,9 @@ export default {
   padding: 20px 30px;
   margin-bottom: 20px;
   background-color: #ffffff;
+}
+.content a{
+  color:#333;
 }
 .content-header{
   height:30px;

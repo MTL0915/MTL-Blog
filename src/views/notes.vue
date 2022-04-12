@@ -7,92 +7,15 @@
       </div>
       <div class="myNotes">
         <ul>
-          <li class="list-item">
-            <a href="#">
+          <li class="list-item" v-for="item in notesList" :key="item.detail_id">
+            <a :href="item.address" target="blank">
               <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
+                :src="item.image"
               />
             </a>
             <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
-            </div>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
-              />
-            </a>
-            <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
-            </div>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
-              />
-            </a>
-            <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
-            </div>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
-              />
-            </a>
-            <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
-            </div>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
-              />
-            </a>
-            <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
-            </div>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
-              />
-            </a>
-            <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
-            </div>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
-              />
-            </a>
-            <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
-            </div>
-          </li>
-          <li class="list-item">
-            <a href="#">
-              <img
-                src="https://puui.qpic.cn/qqvideo_ori/0/v0039pm6h21_360_204/0"
-              />
-            </a>
-            <div class="intro">
-              <a href="">百老汇经典音乐剧《国王与我》上线</a>
-              <div class="createTime">2021/8/21</div>
+              <a href="">{{item.title}}</a>
+              <div class="createTime">{{item.keywords}}</div>
             </div>
           </li>
         </ul>
@@ -106,14 +29,28 @@
 import "../assets/css/iconfont.css";
 import Header from "../components/Header.vue";
 import Footer from "../components/Footer.vue";
+import axios from 'axios'
 export default {
   components: {
     Header,
     Footer,
   },
   data() {
-    return {};
+    return {
+      notesList:[]
+    };
   },
+  mounted() {
+    axios.get('http://localhost:8080/api/notes/list').then(
+      response => {
+        console.log('请求成功',response.data)
+        this.notesList = response.data.data
+      },
+      error => {
+        console.log('请求失败',error.message)
+      }
+    )
+  }
 };
 </script>
 

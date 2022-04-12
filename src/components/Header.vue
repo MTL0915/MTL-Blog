@@ -75,7 +75,7 @@ export default {
 
     axios.get('http://localhost:8080/api/article/bannerImg').then(
       response => {
-        console.log('请求成功123',response.data)
+        console.log('请求成功',response.data)
         this.bannerImgs = response.data.data
       },
       error => {

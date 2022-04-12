@@ -37,6 +37,10 @@ export default {
 .category-body{
   margin-top:20px;
 }
+.category-body .active{
+  color: #abcdef;
+  font-weight: bold;
+}
 .category-body li{
   padding-left:20px;
   border-bottom:1px solid #c7c7c7;

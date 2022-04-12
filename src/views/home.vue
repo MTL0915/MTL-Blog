@@ -12,14 +12,12 @@
 
 <script>
 import Header from '../components/Header.vue'
-import ArticleBox from '../components/ArticleBox.vue'
 import Category from '../components/Category.vue'
 import Footer from '../components/Footer.vue'
 
 export default {
   components: {
     Header,
-    ArticleBox,
     Category,
     Footer
   },

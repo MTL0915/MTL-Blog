@@ -9,6 +9,9 @@
         </div>
         <div class="content-body">
           <p>
+            <img :src="datailItem.detailHeaderImg">
+          </p>
+          <p>
             {{datailItem.detailContentOne}}
           </p>
         </div>
