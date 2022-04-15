@@ -30,7 +30,7 @@ export default {
     }
   },
   mounted(){
-    axios.get('http://localhost:8080/api/article/applist').then(
+    axios.get('http://www.matianle.com/api/article/applist').then(
       response => {
         console.log('请求成功',response.data)
         this.articleList = response.data.data

@@ -30,7 +30,7 @@ export default {
     }
   },
   mounted(){
-    axios.get('http://localhost:8080/api/article/wechatlist').then(
+    axios.get('http://www.matianle.com/api/article/wechatlist').then(
       response => {
         console.log('请求成功',response.data)
         this.articleList = response.data.data

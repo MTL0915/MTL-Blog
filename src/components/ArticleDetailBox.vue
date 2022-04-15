@@ -36,7 +36,7 @@ export default {
     }
   },
   mounted(){
-    axios.get('http://localhost:8080/api/article/detail').then(
+    axios.get('http://www.matianle.com/api/article/detail').then(
       response => {
         console.log('请求成功',response.data)
         this.detailList = response.data.data

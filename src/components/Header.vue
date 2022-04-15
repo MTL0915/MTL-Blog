@@ -3,7 +3,7 @@
     <div class="nav">
       <div class="nav-content">
         <div class="logo">
-          <a href="#">博客 | Blog</a>
+          <span>博客 | Blog</span>
         </div>
         <div class="menu">
           <ul>
@@ -73,7 +73,7 @@ export default {
     console.log("this is current swiper instance object", this.swiper);
     // this.swiper.slideTo(3, 1000, false);
 
-    axios.get('http://localhost:8080/api/article/bannerImg').then(
+    axios.get('http://www.matianle.com/api/article/bannerImg').then(
       response => {
         console.log('请求成功',response.data)
         this.bannerImgs = response.data.data
@@ -100,6 +100,9 @@ export default {
   float: left;
   height: 50px;
   line-height: 50px;
+}
+.logo span{
+  color: #fff;
 }
 .menu {
   float: right;
